@@ -1,0 +1,54 @@
+
+<div class="container content_postion">
+<form [formGroup]="form" (ngSubmit)="send()">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" formControlName="dateInit" [class.is-invalid]="NoValidDateInit" placeholder="Fecha Inicio">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control"formControlName="dateFinish" [class.is-invalid]="NoValidDateFinish" placeholder="Fecha Final">
+
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-primary">Calcular</button>
+    </div>
+  </div>
+</form>
+  <div class="prom_position">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Promedio Compra</th>
+        <th scope="col">Promedio Venta</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{averagePurchase}}</td>
+        <td>{{averageSale}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+<h2 class="title_pos">Lista de Peticiones</h2>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">ID_PETICION</th>
+    <th scope="col">FECHA</th>
+    <th scope="col">TC VENTA</th>
+    <th scope="col">TC COMPRA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let exchange of exchangeList | paginate : {itemsPerPage: 5, currentPage: pageChanged}">
+    <th class="table-primary" scope="row">{{exchange.peticion_id}}</th>
+    <td>{{exchange.fecha}}</td>
+    <td>{{exchange.venta}}</td>
+    <td>{{exchange.compra}}</td>
+  </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="pageChanged = $event"></pagination-controls>
+
+</div>
