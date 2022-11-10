@@ -1,0 +1,43 @@
+.cont-social{
+
+  margin-left: 50%;
+
+}
+
+span{
+  font-size: 0.75rem;
+}
+
+p{
+  font-size: 0.75rem;
+}
+
+.cont-terms{
+  margin-top: 1rem;
+  margin-left: 26%;
+}
+
+img{
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 991px) {
+  .foot-web{
+    display: none;
+  }
+  .logo-position{
+    text-align: center;
+  }
+  .cont-social{
+    margin-left: 0%;
+  }
+
+  .cont-terms{
+    margin-top: 1rem;
+    margin-left: 0%;
+  }
+  .phone-icon{
+    display: none;
+  }
+}
